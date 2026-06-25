@@ -76,6 +76,19 @@
     .logo-dots span:nth-child(2) { background: var(--mint); }
     .logo-dots span:nth-child(3) { background: var(--coral); }
     .logo-dots span:nth-child(4) { background: var(--purple); }
+    .nav-links { display: flex; gap: 22px; align-items: center; }
+    .nav-links a {
+      font-size: 0.85rem; font-weight: 500;
+      color: var(--text-muted); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--text); }
+    .nav-links a.cta {
+      background: var(--yellow); color: #1A1A2E;
+      font-family: 'Nunito', sans-serif; font-weight: 700;
+      padding: 7px 16px; border-radius: 8px;
+    }
+    .nav-links a.cta:hover { opacity: 0.9; color: #1A1A2E; }
 
     /* ─── HERO ───────────────────────────────────────────── */
     .hero {
@@ -258,11 +271,13 @@
     .rajeev-badge {
       flex-shrink: 0;
       width: 72px; height: 72px; border-radius: 50%;
-      background: var(--yellow);
+      background: #fff;
       display: flex; align-items: center; justify-content: center;
-      font-family: 'Nunito', sans-serif;
-      font-weight: 900; font-size: 1.6rem;
-      color: #1A1A2E;
+      overflow: hidden;
+    }
+    .rajeev-badge img {
+      width: 64%; height: 64%; object-fit: contain;
+      display: block;
     }
     .rajeev-text { flex: 1; min-width: 200px; }
     .rajeev-text .byline {
@@ -319,6 +334,14 @@
       text-decoration: none; transition: color 0.2s;
     }
     .footer-links a:hover { color: var(--yellow); }
+    .footer-right { display: flex; align-items: center; gap: 22px; }
+    .footer-social { display: flex; align-items: center; gap: 14px; }
+    .footer-social a {
+      color: var(--text-muted); display: inline-flex;
+      transition: color 0.2s, transform 0.15s;
+    }
+    .footer-social a:hover { color: var(--yellow); transform: translateY(-1px); }
+    .footer-social svg { width: 19px; height: 19px; display: block; }
 
     /* ─── ANIMATIONS ─────────────────────────────────────── */
     @keyframes fadeUp {
@@ -336,6 +359,8 @@
 
     /* ─── RESPONSIVE ─────────────────────────────────────── */
     @media (max-width: 600px) {
+      .nav-links { gap: 14px; }
+      .nav-links a:not(.cta) { display: none; }
       .signup-form { flex-direction: column; }
       .signup-form input[type="email"],
       .btn-cta { width: 100%; }
@@ -350,22 +375,27 @@
 <!-- ── NAV ────────────────────────────────────────────────── -->
 <nav>
   <div class="nav-inner">
-    <a href="#" class="logo">
+    <a href="index.html" class="logo">
       syllabus
       <span class="logo-dots">
         <span></span><span></span><span></span><span></span>
       </span>
     </a>
+    <div class="nav-links">
+      <a href="about.html">About</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="#subscribe" class="cta">Subscribe</a>
+    </div>
     </div>
 </nav>
 
 <!-- ── HERO ───────────────────────────────────────────────── -->
 <section class="hero">
   <div class="hero-inner">
-    <span class="hero-tag">Weekly AI & Robotics Newsletter</span>
+    <span class="hero-tag">Weekly AI & Robotics Newsletter · Every Sunday</span>
 
     <h1>
-      The latest AI & Robotics.<br>
+      The latest in AI & Robotics.<br>
       <span class="accent">Explained, weekly.</span>
     </h1>
 
@@ -374,7 +404,7 @@
     </p>
 
     <!-- SIGNUP BOX -->
-    <div class="signup-box">
+    <div class="signup-box" id="subscribe">
       <h2>Join thousands of readers</h2>
       <p class="sub">No jargon. No hype. Just what you need to know.</p>
       <div class="signup-form">
@@ -385,20 +415,7 @@
     </div>
 
     <!-- STATS -->
-    <div class="stats">
-      <div class="stat">
-        <div class="stat-num">25K+</div>
-        <div class="stat-label">Readers</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">104</div>
-        <div class="stat-label">Weekly Editions</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">50+</div>
-        <div class="stat-label">Countries</div>
-      </div>
-    </div>
+    
   </div>
 </section>
 
@@ -438,7 +455,7 @@
 <!-- ── RAJEEV ──────────────────────────────────────────────── -->
 <section class="rajeev-section" style="padding-top: 64px;">
   <div class="rajeev-card">
-    <div class="rajeev-badge">RK</div>
+    <div class="rajeev-badge"><img src="data:image/png;base64,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" alt="Rajeev.ai logo"></div>
     <div class="rajeev-text">
       <p class="byline">Built by a Top Global AI Advisor TO BUSINESS LEADERS WORLDWIDE
 </p>
@@ -447,7 +464,7 @@
         Rajeev Kapur helps non‑technical leaders turn AI into clear, practical results — cutting through the noise for education, government, and SMBs. A keynote speaker, author, and CEO of 1105 Media for over a decade, he pairs real‑world leadership with repeatable frameworks.
       </p>
     </div>
-    <a href="https://rajeevkapur.ai" target="_blank" rel="noopener" class="btn-ghost">
+    <a href="https://rajeev.ai/" target="_blank" rel="noopener" class="btn-ghost">
       More about Rajeev ↗
     </a>
   </div>
@@ -456,11 +473,26 @@
 <!-- ── FOOTER ─────────────────────────────────────────────── -->
 <footer>
   <div class="footer-inner">
-    <span class="footer-copy">© 2026 syllabus</span>
-    <div class="footer-links">
-      <a href="#">Archive</a>
-      <a href="#">About</a>
-      <a href="#">Privacy</a>
+    <span class="footer-copy">© 2026 syllabus · Powered by RajeevKapur.ai</span>
+    <div class="footer-right">
+      <div class="footer-links">
+        <a href="about.html">About</a>
+        <a href="privacy.html">Privacy</a>
+      </div>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/syllabusai_/" target="_blank" rel="noopener" aria-label="Syllabus on Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+          </svg>
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61590663362930" target="_blank" rel="noopener" aria-label="Syllabus on Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"></path>
+          </svg>
+        </a>
+      </div>
     </div>
   </div>
 </footer>

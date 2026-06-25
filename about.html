@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — syllabus</title>
+  <meta name="description" content="Syllabus is a free weekly newsletter that rounds up the most important news in AI and robotics and explains it in plain English. Powered by RajeevKapur.ai." />
+  <link rel="canonical" href="https://syllabus.com/about" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── TOKENS ─────────────────────────────────────────── */
+    :root {
+      --yellow:  #FFD60A;
+      --mint:    #06D6A0;
+      --coral:   #FF6B6B;
+      --purple:  #845EC2;
+      --radius:  14px;
+      --trans:   0.35s ease;
+    }
+    [data-theme="dark"] {
+      --bg:        #1A1A2E;
+      --bg-card:   #22223a;
+      --bg-input:  #2a2a45;
+      --text:      #F0F0F0;
+      --text-muted:#9999bb;
+      --border:    rgba(255,255,255,0.08);
+      --nav-bg:    rgba(26,26,46,0.92);
+    }
+    [data-theme="light"] {
+      --bg:        #ffffff;
+      --bg-card:   #f5f5f8;
+      --bg-input:  #eeeef4;
+      --text:      #1A1A2E;
+      --text-muted:#6666aa;
+      --border:    rgba(26,26,46,0.1);
+      --nav-bg:    rgba(255,255,255,0.92);
+    }
+    /* ─── RESET ──────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      transition: background var(--trans), color var(--trans);
+      overflow-x: hidden;
+    }
+    /* ─── NAV ────────────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: var(--nav-bg);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      transition: background var(--trans), border-color var(--trans);
+    }
+    .nav-inner {
+      max-width: 1060px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 24px; height: 60px;
+    }
+    .logo {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900; font-size: 1.25rem;
+      color: var(--text); text-decoration: none;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .logo-dots { display: flex; gap: 4px; }
+    .logo-dots span { width: 7px; height: 7px; border-radius: 50%; }
+    .logo-dots span:nth-child(1) { background: var(--yellow); }
+    .logo-dots span:nth-child(2) { background: var(--mint); }
+    .logo-dots span:nth-child(3) { background: var(--coral); }
+    .logo-dots span:nth-child(4) { background: var(--purple); }
+    .nav-links { display: flex; gap: 22px; align-items: center; }
+    .nav-links a {
+      font-size: 0.85rem; font-weight: 500;
+      color: var(--text-muted); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--text); }
+    .nav-links a.cta {
+      background: var(--yellow); color: #1A1A2E;
+      font-family: 'Nunito', sans-serif; font-weight: 700;
+      padding: 7px 16px; border-radius: 8px;
+    }
+    .nav-links a.cta:hover { opacity: 0.9; color: #1A1A2E; }
+
+    /* ─── CONTENT PAGE ───────────────────────────────────── */
+    .page {
+      max-width: 760px; margin: 0 auto;
+      padding: 132px 24px 40px;
+    }
+    .page-tag {
+      display: inline-block;
+      font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--yellow);
+      background: rgba(255,214,10,0.1);
+      border: 1px solid rgba(255,214,10,0.25);
+      border-radius: 100px; padding: 5px 14px; margin-bottom: 22px;
+    }
+    .page h1 {
+      font-family: 'Nunito', sans-serif; font-weight: 900;
+      font-size: clamp(2.1rem, 5vw, 3.2rem); line-height: 1.1;
+      color: var(--text); margin-bottom: 18px;
+    }
+    .page h1 .accent { color: var(--yellow); }
+    .page .lead {
+      font-size: 1.05rem; line-height: 1.7;
+      color: var(--text-muted); max-width: 620px; margin-bottom: 8px;
+    }
+    .page .meta {
+      font-size: 0.8rem; color: var(--text-muted);
+      margin-top: 6px; opacity: 0.85;
+    }
+    .prose { margin-top: 40px; }
+    .prose h2 {
+      font-family: 'Nunito', sans-serif; font-weight: 900;
+      font-size: 1.35rem; color: var(--text);
+      margin: 40px 0 14px;
+    }
+    .prose h2:first-child { margin-top: 0; }
+    .prose h3 {
+      font-family: 'Nunito', sans-serif; font-weight: 700;
+      font-size: 1.02rem; color: var(--text); margin: 22px 0 8px;
+    }
+    .prose p {
+      font-size: 0.95rem; line-height: 1.75;
+      color: var(--text-muted); margin-bottom: 14px;
+    }
+    .prose ul { margin: 0 0 16px 0; padding-left: 0; list-style: none; }
+    .prose li {
+      position: relative; padding-left: 22px; margin-bottom: 10px;
+      font-size: 0.95rem; line-height: 1.65; color: var(--text-muted);
+    }
+    .prose li::before {
+      content: ""; position: absolute; left: 0; top: 0.6em;
+      width: 7px; height: 7px; border-radius: 50%; background: var(--yellow);
+    }
+    .prose a { color: var(--yellow); text-decoration: none; }
+    .prose a:hover { text-decoration: underline; }
+    .prose strong { color: var(--text); font-weight: 600; }
+
+    /* ─── DIVIDER ────────────────────────────────────────── */
+    .divider {
+      max-width: 1060px; margin: 0 auto;
+      border: none; border-top: 1px solid var(--border);
+      transition: border-color var(--trans);
+    }
+
+    /* ─── CARDS (about) ──────────────────────────────────── */
+    .cards {
+      display: grid; gap: 18px;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      margin-top: 8px;
+    }
+    .card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 26px 22px;
+      transition: transform 0.2s, border-color var(--trans);
+    }
+    .card:hover { transform: translateY(-3px); }
+    .card-icon { font-size: 1.5rem; margin-bottom: 12px; }
+    .card-title {
+      font-family: 'Nunito', sans-serif; font-weight: 700;
+      font-size: 1rem; margin-bottom: 8px; color: var(--text);
+    }
+    .card-body { font-size: 0.85rem; line-height: 1.6; color: var(--text-muted); }
+    .cards .card:nth-child(1) .card-title { color: var(--yellow); }
+    .cards .card:nth-child(2) .card-title { color: var(--mint); }
+    .cards .card:nth-child(3) .card-title { color: var(--coral); }
+    .cards .card:nth-child(4) .card-title { color: var(--purple); }
+
+    /* ─── RAJEEV CARD (about) ────────────────────────────── */
+    .rajeev-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 36px;
+      display: flex; align-items: center; gap: 32px; flex-wrap: wrap;
+    }
+    .rajeev-badge {
+      flex-shrink: 0; width: 72px; height: 72px; border-radius: 50%;
+      background: #fff; display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    .rajeev-badge img { width: 64%; height: 64%; object-fit: contain; display: block; }
+    .rajeev-text { flex: 1; min-width: 200px; }
+    .rajeev-text .byline {
+      font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--yellow); margin-bottom: 6px;
+    }
+    .rajeev-text h3 {
+      font-family: 'Nunito', sans-serif; font-weight: 900;
+      font-size: 1.25rem; color: var(--text); margin-bottom: 8px;
+    }
+    .rajeev-text p { font-size: 0.85rem; line-height: 1.6; color: var(--text-muted); max-width: 480px; }
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.9rem;
+      color: var(--text); border: 1px solid var(--border);
+      border-radius: 10px; padding: 10px 18px; text-decoration: none;
+      transition: border-color 0.2s, color var(--trans); white-space: nowrap;
+    }
+    .btn-ghost:hover { border-color: var(--yellow); color: var(--yellow); }
+
+    /* ─── CTA BAND ───────────────────────────────────────── */
+    .cta-band {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 40px 32px; text-align: center;
+      margin-top: 8px;
+    }
+    .cta-band h2 {
+      font-family: 'Nunito', sans-serif; font-weight: 900;
+      font-size: clamp(1.5rem, 3vw, 2rem); color: var(--text); margin-bottom: 10px;
+    }
+    .cta-band p { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 22px; }
+    .btn-cta {
+      display: inline-block;
+      background: var(--yellow); color: #1A1A2E;
+      font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.95rem;
+      padding: 13px 26px; border: none; border-radius: 10px;
+      cursor: pointer; text-decoration: none;
+      transition: opacity 0.2s, transform 0.15s;
+    }
+    .btn-cta:hover { opacity: 0.9; transform: translateY(-1px); }
+
+    /* ─── FOOTER ─────────────────────────────────────────── */
+    footer { border-top: 1px solid var(--border); padding: 32px 24px; }
+    .footer-inner {
+      max-width: 1060px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 16px;
+    }
+    .footer-copy { font-size: 0.8rem; color: var(--text-muted); }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a { font-size: 0.8rem; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--yellow); }
+
+    @media (max-width: 600px) {
+      .rajeev-card { flex-direction: column; text-align: center; }
+      .rajeev-text { text-align: center; }
+      .nav-links { gap: 14px; }
+      .nav-links a:not(.cta) { display: none; }
+    }
+</style>
+</head>
+<body><nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      syllabus
+      <span class="logo-dots"><span></span><span></span><span></span><span></span></span>
+    </a>
+    <div class="nav-links">
+      <a href="about.html" class="active">About</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="index.html#subscribe" class="cta">Subscribe</a>
+    </div>
+  </div>
+</nav>
+
+<section class="page">
+  <span class="page-tag">About Syllabus</span>
+  <h1>AI &amp; robotics,<br><span class="accent">made simple.</span></h1>
+  <p class="lead">
+    There's more AI and robotics news than anyone can keep up with. Syllabus reads it for you —
+    and sends back the part that actually matters, once a week.
+  </p>
+
+  <div class="prose">
+    <h2>What Syllabus is</h2>
+    <p>
+      Syllabus is a free weekly newsletter about artificial intelligence and robotics.
+      Every week we scan the firehose of announcements, research, product launches, and breakthroughs,
+      pick out what's genuinely important, and explain it in plain language — no jargon, no hype.
+      It lands in your inbox every Sunday and takes about five minutes to read.
+    </p>
+
+    <h2>Why we built it</h2>
+    <p>
+      Most AI coverage is written either for engineers or for headlines. One is impenetrable, the other is empty.
+      We wanted something in between: clear enough that a busy founder, operator, or curious reader can follow it,
+      and useful enough that you walk away knowing what changed and what to do about it.
+    </p>
+    <p>
+      The goal is simple — help you stay ahead without having to live online all week.
+    </p>
+
+    <h2>What's inside each issue</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="card-icon">📰</div>
+        <div class="card-title">The headlines</div>
+        <div class="card-body">The week's most important AI &amp; robotics developments, distilled.</div>
+      </div>
+      <div class="card">
+        <div class="card-icon">💡</div>
+        <div class="card-title">What it means</div>
+        <div class="card-body">Context and implications — why each story actually matters.</div>
+      </div>
+      <div class="card">
+        <div class="card-icon">🛠️</div>
+        <div class="card-title">Tools to try</div>
+        <div class="card-body">Practical picks you can put to work this week.</div>
+      </div>
+      <div class="card">
+        <div class="card-icon">📡</div>
+        <div class="card-title">Stay ahead</div>
+        <div class="card-body">Early signals and trends, so you see what's coming first.</div>
+      </div>
+    </div>
+
+    <h2>Who it's for</h2>
+    <p>
+      Founders, operators, marketers, and anyone who wants to understand where AI and robotics are heading —
+      whether you run a company or just want to keep up. No technical background required.
+    </p>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<section class="page" style="padding-top:56px;padding-bottom:24px;">
+  <div class="rajeev-card">
+    <div class="rajeev-badge"><img src="data:image/png;base64,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" alt="Rajeev.ai logo"></div>
+    <div class="rajeev-text">
+      <p class="byline">Built by a Top Global AI Advisor to business leaders worldwide</p>
+      <h3>Rajeev Kapur</h3>
+      <p>
+        Rajeev Kapur helps non&#8209;technical leaders turn AI into clear, practical results — cutting through the noise
+        for education, government, and SMBs. A keynote speaker, author, and CEO of 1105 Media for over a decade,
+        he pairs real&#8209;world leadership with repeatable frameworks.
+      </p>
+    </div>
+    <a href="https://rajeev.ai/" target="_blank" rel="noopener" class="btn-ghost">More about Rajeev ↗</a>
+  </div>
+</section>
+
+<section class="page" style="padding-top:24px;">
+  <div class="cta-band">
+    <h2>Stay ahead of AI &amp; robotics.</h2>
+    <p>One email a week. No jargon, no hype — just what you need to know.</p>
+    <a href="index.html#subscribe" class="btn-cta">Subscribe free →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <span class="footer-copy">© 2026 syllabus · Powered by RajeevKapur.ai</span>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="privacy.html">Privacy</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

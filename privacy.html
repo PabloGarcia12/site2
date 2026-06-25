@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — syllabus</title>
+  <meta name="description" content="How Syllabus collects, uses, and protects your information. Syllabus is a free weekly AI & robotics newsletter powered by RajeevKapur.ai." />
+  <link rel="canonical" href="https://syllabus.com/privacy" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── TOKENS ─────────────────────────────────────────── */
+    :root {
+      --yellow:  #FFD60A;
+      --mint:    #06D6A0;
+      --coral:   #FF6B6B;
+      --purple:  #845EC2;
+      --radius:  14px;
+      --trans:   0.35s ease;
+    }
+    [data-theme="dark"] {
+      --bg:        #1A1A2E;
+      --bg-card:   #22223a;
+      --bg-input:  #2a2a45;
+      --text:      #F0F0F0;
+      --text-muted:#9999bb;
+      --border:    rgba(255,255,255,0.08);
+      --nav-bg:    rgba(26,26,46,0.92);
+    }
+    [data-theme="light"] {
+      --bg:        #ffffff;
+      --bg-card:   #f5f5f8;
+      --bg-input:  #eeeef4;
+      --text:      #1A1A2E;
+      --text-muted:#6666aa;
+      --border:    rgba(26,26,46,0.1);
+      --nav-bg:    rgba(255,255,255,0.92);
+    }
+    /* ─── RESET ──────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      transition: background var(--trans), color var(--trans);
+      overflow-x: hidden;
+    }
+    /* ─── NAV ────────────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: var(--nav-bg);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      transition: background var(--trans), border-color var(--trans);
+    }
+    .nav-inner {
+      max-width: 1060px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 24px; height: 60px;
+    }
+    .logo {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900; font-size: 1.25rem;
+      color: var(--text); text-decoration: none;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .logo-dots { display: flex; gap: 4px; }
+    .logo-dots span { width: 7px; height: 7px; border-radius: 50%; }
+    .logo-dots span:nth-child(1) { background: var(--yellow); }
+    .logo-dots span:nth-child(2) { background: var(--mint); }
+    .logo-dots span:nth-child(3) { background: var(--coral); }
+    .logo-dots span:nth-child(4) { background: var(--purple); }
+    .nav-links { display: flex; gap: 22px; align-items: center; }
+    .nav-links a {
+      font-size: 0.85rem; font-weight: 500;
+      color: var(--text-muted); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--text); }
+    .nav-links a.cta {
+      background: var(--yellow); color: #1A1A2E;
+      font-family: 'Nunito', sans-serif; font-weight: 700;
+      padding: 7px 16px; border-radius: 8px;
+    }
+    .nav-links a.cta:hover { opacity: 0.9; color: #1A1A2E; }
+
+    /* ─── CONTENT PAGE ───────────────────────────────────── */
+    .page {
+      max-width: 760px; margin: 0 auto;
+      padding: 132px 24px 40px;
+    }
+    .page-tag {
+      display: inline-block;
+      font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--yellow);
+      background: rgba(255,214,10,0.1);
+      border: 1px solid rgba(255,214,10,0.25);
+      border-radius: 100px; padding: 5px 14px; margin-bottom: 22px;
+    }
+    .page h1 {
+      font-family: 'Nunito', sans-serif; font-weight: 900;
+      font-size: clamp(2.1rem, 5vw, 3.2rem); line-height: 1.1;
+      color: var(--text); margin-bottom: 18px;
+    }
+    .page h1 .accent { color: var(--yellow); }
+    .page .lead {
+      font-size: 1.05rem; line-height: 1.7;
+      color: var(--text-muted); max-width: 620px; margin-bottom: 8px;
+    }
+    .page .meta {
+      font-size: 0.8rem; color: var(--text-muted);
+      margin-top: 6px; opacity: 0.85;
+    }
+    .prose { margin-top: 40px; }
+    .prose h2 {
+      font-family: 'Nunito', sans-serif; font-weight: 900;
+      font-size: 1.35rem; color: var(--text);
+      margin: 40px 0 14px;
+    }
+    .prose h2:first-child { margin-top: 0; }
+    .prose h3 {
+      font-family: 'Nunito', sans-serif; font-weight: 700;
+      font-size: 1.02rem; color: var(--text); margin: 22px 0 8px;
+    }
+    .prose p {
+      font-size: 0.95rem; line-height: 1.75;
+      color: var(--text-muted); margin-bottom: 14px;
+    }
+    .prose ul { margin: 0 0 16px 0; padding-left: 0; list-style: none; }
+    .prose li {
+      position: relative; padding-left: 22px; margin-bottom: 10px;
+      font-size: 0.95rem; line-height: 1.65; color: var(--text-muted);
+    }
+    .prose li::before {
+      content: ""; position: absolute; left: 0; top: 0.6em;
+      width: 7px; height: 7px; border-radius: 50%; background: var(--yellow);
+    }
+    .prose a { color: var(--yellow); text-decoration: none; }
+    .prose a:hover { text-decoration: underline; }
+    .prose strong { color: var(--text); font-weight: 600; }
+
+    /* ─── DIVIDER ────────────────────────────────────────── */
+    .divider {
+      max-width: 1060px; margin: 0 auto;
+      border: none; border-top: 1px solid var(--border);
+      transition: border-color var(--trans);
+    }
+
+    /* ─── CARDS (about) ──────────────────────────────────── */
+    .cards {
+      display: grid; gap: 18px;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      margin-top: 8px;
+    }
+    .card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 26px 22px;
+      transition: transform 0.2s, border-color var(--trans);
+    }
+    .card:hover { transform: translateY(-3px); }
+    .card-icon { font-size: 1.5rem; margin-bottom: 12px; }
+    .card-title {
+      font-family: 'Nunito', sans-serif; font-weight: 700;
+      font-size: 1rem; margin-bottom: 8px; color: var(--text);
+    }
+    .card-body { font-size: 0.85rem; line-height: 1.6; color: var(--text-muted); }
+    .cards .card:nth-child(1) .card-title { color: var(--yellow); }
+    .cards .card:nth-child(2) .card-title { color: var(--mint); }
+    .cards .card:nth-child(3) .card-title { color: var(--coral); }
+    .cards .card:nth-child(4) .card-title { color: var(--purple); }
+
+    /* ─── RAJEEV CARD (about) ────────────────────────────── */
+    .rajeev-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 36px;
+      display: flex; align-items: center; gap: 32px; flex-wrap: wrap;
+    }
+    .rajeev-badge {
+      flex-shrink: 0; width: 72px; height: 72px; border-radius: 50%;
+      background: #fff; display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    .rajeev-badge img { width: 64%; height: 64%; object-fit: contain; display: block; }
+    .rajeev-text { flex: 1; min-width: 200px; }
+    .rajeev-text .byline {
+      font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--yellow); margin-bottom: 6px;
+    }
+    .rajeev-text h3 {
+      font-family: 'Nunito', sans-serif; font-weight: 900;
+      font-size: 1.25rem; color: var(--text); margin-bottom: 8px;
+    }
+    .rajeev-text p { font-size: 0.85rem; line-height: 1.6; color: var(--text-muted); max-width: 480px; }
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.9rem;
+      color: var(--text); border: 1px solid var(--border);
+      border-radius: 10px; padding: 10px 18px; text-decoration: none;
+      transition: border-color 0.2s, color var(--trans); white-space: nowrap;
+    }
+    .btn-ghost:hover { border-color: var(--yellow); color: var(--yellow); }
+
+    /* ─── CTA BAND ───────────────────────────────────────── */
+    .cta-band {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 40px 32px; text-align: center;
+      margin-top: 8px;
+    }
+    .cta-band h2 {
+      font-family: 'Nunito', sans-serif; font-weight: 900;
+      font-size: clamp(1.5rem, 3vw, 2rem); color: var(--text); margin-bottom: 10px;
+    }
+    .cta-band p { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 22px; }
+    .btn-cta {
+      display: inline-block;
+      background: var(--yellow); color: #1A1A2E;
+      font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.95rem;
+      padding: 13px 26px; border: none; border-radius: 10px;
+      cursor: pointer; text-decoration: none;
+      transition: opacity 0.2s, transform 0.15s;
+    }
+    .btn-cta:hover { opacity: 0.9; transform: translateY(-1px); }
+
+    /* ─── FOOTER ─────────────────────────────────────────── */
+    footer { border-top: 1px solid var(--border); padding: 32px 24px; }
+    .footer-inner {
+      max-width: 1060px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 16px;
+    }
+    .footer-copy { font-size: 0.8rem; color: var(--text-muted); }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a { font-size: 0.8rem; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--yellow); }
+
+    @media (max-width: 600px) {
+      .rajeev-card { flex-direction: column; text-align: center; }
+      .rajeev-text { text-align: center; }
+      .nav-links { gap: 14px; }
+      .nav-links a:not(.cta) { display: none; }
+    }
+</style>
+</head>
+<body><nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      syllabus
+      <span class="logo-dots"><span></span><span></span><span></span><span></span></span>
+    </a>
+    <div class="nav-links">
+      <a href="about.html">About</a>
+      <a href="privacy.html" class="active">Privacy</a>
+      <a href="index.html#subscribe" class="cta">Subscribe</a>
+    </div>
+  </div>
+</nav>
+
+<section class="page">
+  <span class="page-tag">Legal</span>
+  <h1>Privacy Policy</h1>
+  <p class="lead">
+    This policy explains what information Syllabus collects, how we use it, and the choices you have.
+    We keep this short and plain, the same way we write the newsletter.
+  </p>
+  <p class="meta">Last updated: June 25, 2026</p>
+
+  <div class="prose">
+    <h2>Who we are</h2>
+    <p>
+      Syllabus ("we", "us") is a free weekly newsletter covering artificial intelligence and robotics,
+      published at <strong>syllabus.com</strong> and powered by RajeevKapur.ai. For any privacy question,
+      contact us at <a href="mailto:admin@syllabus.com">admin@syllabus.com</a>.
+    </p>
+
+    <h2>What we collect</h2>
+    <p>When you subscribe, we collect:</p>
+    <ul>
+      <li><strong>Your email address</strong> — required to send you the newsletter.</li>
+      <li><strong>Your name</strong> — only if you choose to provide it.</li>
+      <li><strong>Engagement data</strong> — basic delivery and open/click activity reported by our email provider, used to improve the newsletter.</li>
+    </ul>
+    <p>
+      We do <strong>not</strong> ask for sensitive personal information, and we don't require an account to read Syllabus.
+    </p>
+
+    <h2>How we use it</h2>
+    <ul>
+      <li>To send you the weekly Syllabus newsletter and related updates.</li>
+      <li>To understand what content is useful so we can make the newsletter better.</li>
+      <li>To respond to you if you contact us.</li>
+    </ul>
+    <p>We will never use your information for anything you haven't reasonably expected when you signed up.</p>
+
+    <h2>Service providers</h2>
+    <p>
+      We rely on a small number of trusted providers to operate the newsletter. They process your information
+      only to provide their service to us:
+    </p>
+    <ul>
+      <li><strong>Flodesk</strong> — our email platform, which stores subscriber details and delivers the newsletter.</li>
+      <li><strong>Cloudflare</strong> — hosting and content delivery for this website.</li>
+      <li><strong>Google Workspace</strong> — for receiving and managing email we send to and from our own addresses.</li>
+    </ul>
+
+    <h2>Selling your data</h2>
+    <p>
+      We do not sell, rent, or trade your personal information. We don't share your email with advertisers or
+      third parties for their own marketing.
+    </p>
+
+    <h2>Cookies &amp; analytics</h2>
+    <p>
+      This site uses minimal cookies — only what's needed for it to function and load reliably (including
+      Cloudflare's security and performance cookies). Newsletter emails may include standard open- and
+      click-tracking pixels so we can see which topics resonate. You can block cookies in your browser settings
+      and disable image loading in your email client if you prefer.
+    </p>
+
+    <h2>Your rights &amp; choices</h2>
+    <ul>
+      <li><strong>Unsubscribe anytime</strong> — every email includes a one-click unsubscribe link.</li>
+      <li><strong>Access or correction</strong> — email us to see or update the information we hold about you.</li>
+      <li><strong>Deletion</strong> — email us to have your information removed from our list.</li>
+    </ul>
+    <p>
+      Depending on where you live (for example, the EU/UK under GDPR, or California under the CCPA), you may have
+      additional rights over your personal data. We honor these requests — just reach out to
+      <a href="mailto:admin@syllabus.com">admin@syllabus.com</a>.
+    </p>
+
+    <h2>Data retention</h2>
+    <p>
+      We keep your information for as long as you're subscribed. If you unsubscribe or ask to be deleted,
+      we remove your details from our active list, retaining only what we're required to keep for legal or
+      record-keeping reasons.
+    </p>
+
+    <h2>Data security</h2>
+    <p>
+      We take reasonable measures to protect your information and work with established providers who do the same.
+      No method of transmission over the internet is ever completely secure, but we act to keep your data safe.
+    </p>
+
+    <h2>Children's privacy</h2>
+    <p>
+      Syllabus is intended for adults and is not directed at children under 16. We do not knowingly collect
+      information from children. If you believe a child has subscribed, contact us and we'll remove them.
+    </p>
+
+    <h2>International readers</h2>
+    <p>
+      Syllabus is operated from the United States. If you subscribe from elsewhere, your information may be
+      processed in the U.S. and other countries where our service providers operate.
+    </p>
+
+    <h2>Changes to this policy</h2>
+    <p>
+      We may update this policy from time to time. When we do, we'll revise the "last updated" date above.
+      Significant changes will be communicated in the newsletter.
+    </p>
+
+    <h2>Contact</h2>
+    <p>
+      Questions about this policy or your data? Email <a href="mailto:admin@syllabus.com">admin@syllabus.com</a>.
+    </p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <span class="footer-copy">© 2026 syllabus · Powered by RajeevKapur.ai</span>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="privacy.html">Privacy</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
